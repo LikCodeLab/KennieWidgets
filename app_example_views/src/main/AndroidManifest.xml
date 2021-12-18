@@ -10,7 +10,6 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar">
-
         <activity
             android:name=".MainExampleActivity"
             android:exported="true">
@@ -19,9 +18,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 0.演示控件(Widget) -->
+        </activity> <!-- 0.演示控件(Widget) -->
         <activity
             android:name=".ui.widget.WidgetExampleActivity"
             android:label="@string/example_widget" />
@@ -43,6 +40,8 @@
         <activity android:name=".ui.label.TagReverseActivity" />
 
 
+        <!-- 1.3 演示状态切换(StateLayout) -->
+        <activity android:name=".ui.state.ExampleStateActivity" />
 
     </application>
 

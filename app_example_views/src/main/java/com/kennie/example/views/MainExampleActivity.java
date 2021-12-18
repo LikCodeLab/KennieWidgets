@@ -14,6 +14,7 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.kennie.example.views.adapter.ExampleViewsAdapter;
 import com.kennie.example.views.ui.ExampleCheckViewActivity;
 import com.kennie.example.views.ui.ExampleLabelTagLayoutActivity;
+import com.kennie.example.views.ui.state.ExampleStateActivity;
 import com.kennie.example.views.ui.widget.WidgetExampleActivity;
 
 import java.util.Arrays;
@@ -46,13 +47,17 @@ public class MainExampleActivity extends AppCompatActivity {
             public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
                 switch (position) {
                     case 0:
+                    case 1:
                         startActivity(new Intent(MainExampleActivity.this, WidgetExampleActivity.class));
                         break;
-                    case 1:
+                    case 2:
                         startActivity(new Intent(MainExampleActivity.this, ExampleCheckViewActivity.class));
                         break;
-                    case 2:
+                    case 3:
                         startActivity(new Intent(MainExampleActivity.this, ExampleLabelTagLayoutActivity.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(MainExampleActivity.this, ExampleStateActivity.class));
                         break;
                     default:
                         break;
