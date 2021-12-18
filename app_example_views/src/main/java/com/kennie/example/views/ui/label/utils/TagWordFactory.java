@@ -1,4 +1,4 @@
-package com.kennie.example.views.label.utils;
+package com.kennie.example.views.ui.label.utils;
 
 import java.util.Random;
 

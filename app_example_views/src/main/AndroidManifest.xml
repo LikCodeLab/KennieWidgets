@@ -21,23 +21,28 @@
             </intent-filter>
         </activity>
 
-        <!-- 演示勾选(CheckView)  -->
-
+        <!-- 0.演示控件(Widget) -->
         <activity
-            android:name=".ExampleCheckViewActivity"
+            android:name=".ui.widget.WidgetExampleActivity"
+            android:label="@string/example_widget" />
+
+        <!-- 1.演示勾选(CheckView) -->
+        <activity
+            android:name=".ui.ExampleCheckViewActivity"
             android:label="@string/example_check_view" />
 
-        <!-- 演示标签(LabelTagLayout)  -->
+        <!-- 2.演示标签(LabelTagLayout) -->
         <activity
-            android:name=".label.ExampleLabelTagLayoutActivity"
+            android:name=".ui.ExampleLabelTagLayoutActivity"
             android:label="@string/example_label_tag_layout_view" />
+        <activity android:name=".ui.label.TagShapeActivity" />
+        <activity android:name=".ui.label.TagChoiceActivity" />
+        <activity android:name=".ui.label.TagEditActivity" />
+        <activity android:name=".ui.label.TagChangeActivity" />
+        <activity android:name=".ui.label.TagViewActivity" />
+        <activity android:name=".ui.label.TagReverseActivity" />
 
-        <activity android:name=".label.TagShapeActivity" />
-        <activity android:name=".label.TagChoiceActivity" />
-        <activity android:name=".label.TagEditActivity" />
-        <activity android:name=".label.TagChangeActivity" />
-        <activity android:name=".label.TagViewActivity" />
-        <activity android:name=".label.TagReverseActivity" />
+
 
     </application>
 

@@ -2,7 +2,7 @@ package com.kennie.example.views;
 
 import android.app.Application;
 
-import com.kennie.example.views.label.utils.ToastUtils;
+import com.kennie.example.views.ui.label.utils.ToastUtils;
 
 /**
  * @项目名 KennieProject

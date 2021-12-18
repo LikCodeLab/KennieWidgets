@@ -1,4 +1,4 @@
-package com.kennie.example.views.label;
+package com.kennie.example.views.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kennie.example.views.R;
-import com.kennie.example.views.label.drawable.CircleDrawable;
-import com.kennie.example.views.label.drawable.MultiCircleDrawable;
+import com.kennie.example.views.ui.label.drawable.CircleDrawable;
+import com.kennie.example.views.ui.label.drawable.MultiCircleDrawable;
 import com.kennie.views.label.LabelTagLayout;
 import com.kennie.views.label.LabelTagView;
+
+import com.kennie.example.views.ui.label.*;
 
 /**
  * @项目名 KennieProject

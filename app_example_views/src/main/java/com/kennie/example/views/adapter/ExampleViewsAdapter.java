@@ -1,4 +1,4 @@
-package com.kennie.example.views;
+package com.kennie.example.views.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

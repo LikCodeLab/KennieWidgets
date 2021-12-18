@@ -1,4 +1,4 @@
-package com.kennie.example.views.label.drawable;
+package com.kennie.example.views.ui.label.drawable;
 
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;

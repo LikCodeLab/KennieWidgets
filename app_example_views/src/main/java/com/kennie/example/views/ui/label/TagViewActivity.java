@@ -1,4 +1,4 @@
-package com.kennie.example.views.label;
+package com.kennie.example.views.ui.label;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,9 +8,9 @@ import android.util.SparseIntArray;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kennie.example.views.R;
-import com.kennie.example.views.label.drawable.CircleDrawable;
-import com.kennie.example.views.label.drawable.MultiCircleDrawable;
-import com.kennie.example.views.label.utils.ToastUtils;
+import com.kennie.example.views.ui.label.drawable.CircleDrawable;
+import com.kennie.example.views.ui.label.drawable.MultiCircleDrawable;
+import com.kennie.example.views.ui.label.utils.ToastUtils;
 import com.kennie.views.label.LabelTagView;
 
 

@@ -1,12 +1,12 @@
-package com.kennie.example.views.label;
+package com.kennie.example.views.ui.label;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kennie.example.views.R;
-import com.kennie.example.views.label.utils.TagWordFactory;
-import com.kennie.example.views.label.utils.ToastUtils;
+import com.kennie.example.views.ui.label.utils.TagWordFactory;
+import com.kennie.example.views.ui.label.utils.ToastUtils;
 import com.kennie.views.label.LabelTagLayout;
 import com.kennie.views.label.LabelTagView;
 

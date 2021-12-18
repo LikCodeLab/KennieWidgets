@@ -1,16 +1,16 @@
-package com.kennie.example.views.label;
+package com.kennie.example.views.ui.label;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kennie.example.views.R;
-import com.kennie.example.views.label.utils.TagWordFactory;
-import com.kennie.example.views.label.utils.ToastUtils;
+import com.kennie.example.views.ui.label.utils.TagWordFactory;
+import com.kennie.example.views.ui.label.utils.ToastUtils;
 import com.kennie.views.label.LabelTagLayout;
 import com.kennie.views.label.LabelTagView;
 
-public class TagReverseActivity extends AppCompatActivity implements LabelTagView.OnTagClickListener, LabelTagView.OnTagLongClickListener {
+public class TagChoiceActivity extends AppCompatActivity implements LabelTagView.OnTagClickListener, LabelTagView.OnTagLongClickListener {
 
     private LabelTagLayout mTagLayout1;
     private LabelTagLayout mTagLayout2;
@@ -21,7 +21,7 @@ public class TagReverseActivity extends AppCompatActivity implements LabelTagVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.example_label_tag_reverse);
+        setContentView(R.layout.example_label_tag_choice);
         initView();
     }
 
@@ -50,9 +50,9 @@ public class TagReverseActivity extends AppCompatActivity implements LabelTagVie
         mTagDel.setTagClickListener(new LabelTagView.OnTagClickListener() {
             @Override
             public void onTagClick(int position, String text, @LabelTagView.TagMode int tagMode) {
-                mTagLayout1.deleteTag(0);
-                mTagLayout2.deleteTag(0);
-                mTagLayout3.deleteTag(0);
+                mTagLayout1.deleteCheckedTags();
+                mTagLayout2.deleteCheckedTags();
+                mTagLayout3.deleteCheckedTags();
             }
         });
     }

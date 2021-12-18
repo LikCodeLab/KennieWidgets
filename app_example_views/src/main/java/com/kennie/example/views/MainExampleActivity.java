@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.kennie.example.views.label.ExampleLabelTagLayoutActivity;
+import com.kennie.example.views.adapter.ExampleViewsAdapter;
+import com.kennie.example.views.ui.ExampleCheckViewActivity;
+import com.kennie.example.views.ui.ExampleLabelTagLayoutActivity;
+import com.kennie.example.views.ui.widget.WidgetExampleActivity;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,9 +46,12 @@ public class MainExampleActivity extends AppCompatActivity {
             public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
                 switch (position) {
                     case 0:
-                        startActivity(new Intent(MainExampleActivity.this, ExampleCheckViewActivity.class));
+                        startActivity(new Intent(MainExampleActivity.this, WidgetExampleActivity.class));
                         break;
                     case 1:
+                        startActivity(new Intent(MainExampleActivity.this, ExampleCheckViewActivity.class));
+                        break;
+                    case 2:
                         startActivity(new Intent(MainExampleActivity.this, ExampleLabelTagLayoutActivity.class));
                         break;
                     default:

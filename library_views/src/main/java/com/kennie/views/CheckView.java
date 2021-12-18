@@ -18,7 +18,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Checkable;
 
 /**
- * @项目名 KennieProject
+ * @项目名 KennieViews
  * @类名称 CheckView
  * @类描述 CheckBox 圆形 方形 View
  * @创建人 Kennie

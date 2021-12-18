@@ -1,4 +1,4 @@
-package com.kennie.example.views;
+package com.kennie.example.views.ui;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.kennie.example.views.R;
 import com.kennie.views.CheckView;
 
 
