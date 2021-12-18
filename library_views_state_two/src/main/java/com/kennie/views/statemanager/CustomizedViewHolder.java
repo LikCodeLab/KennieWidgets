@@ -23,7 +23,7 @@ public abstract class CustomizedViewHolder extends BaseViewHolder {
         this.container = new LinearLayout(context);
         this.container.setGravity(Gravity.CENTER);
         this.container.setOrientation(LinearLayout.VERTICAL);
-        int padding = (int) context.getResources().getDimension(R.dimen.dp_32);
+        int padding = (int) context.getResources().getDimension(R.dimen._dp_32);
         this.container.setPadding(0, padding, 0, padding);
         super.onCreateView(context);
         this.view = this.container;
@@ -51,12 +51,12 @@ public abstract class CustomizedViewHolder extends BaseViewHolder {
     }
 
     protected TextView addTextViewWithPadding(int textId, int color, int size) {
-        int padding = context.getResources().getDimensionPixelSize(R.dimen.sp_8);
+        int padding = context.getResources().getDimensionPixelSize(R.dimen._sp_8);
         return addTextView(context.getResources().getString(textId), color, size, padding);
     }
 
     protected TextView addTextViewWithPadding(String text, int color, int size) {
-        int padding = context.getResources().getDimensionPixelSize(R.dimen.sp_8);
+        int padding = context.getResources().getDimensionPixelSize(R.dimen._sp_8);
         return addTextView(text, color, size, padding);
     }
 

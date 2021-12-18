@@ -19,10 +19,10 @@
 
     <com.kennie.views.widget.ClearEditText
         android:id="@+id/et_password_forget_phone"
-        style="@style/EditText_Style"
+        style="@style/_EditText_Style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/_white"
         android:drawableStart="@drawable/ic_phone"
         android:drawablePadding="@dimen/dp_10"
         android:hint="请输入信息"
@@ -42,14 +42,14 @@
 
     <com.kennie.views.widget.PasswordEditText
         android:id="@+id/et_login_password"
-        style="@style/EditText_Style"
+        style="@style/_EditText_Style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_10"
         android:hint="请输入密码"
         android:inputType="textPassword"
         android:maxLength="20"
-        android:minHeight="@dimen/dp_48"
+        android:minHeight="@dimen/_dp_48"
         android:singleLine="true"
         tools:ignore="HardcodedText" />
 
@@ -63,7 +63,7 @@
 
     <com.kennie.views.widget.CountDownView
         android:id="@+id/cv_register_countdown"
-        style="@style/Btn_RoundBorderGreen_Style"
+        style="@style/_Btn_RoundBorderGreen_Style"
         android:layout_marginTop="@dimen/dp_10"
         android:text="发送验证码"
         tools:ignore="HardcodedText" />

@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/_dp_10"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         tools:src="@drawable/state_error_ic" />
@@ -26,20 +26,20 @@
         android:id="@+id/iv_status_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
-        android:textColor="@color/black30"
-        android:textSize="@dimen/sp_14"
-        tools:text="@string/status_layout_error_network" />
+        android:layout_marginTop="@dimen/_dp_10"
+        android:textColor="@color/_black30"
+        android:textSize="@dimen/_sp_14"
+        tools:text="@string/_state_network_error" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/iv_status_retry"
-        style="@style/Btn_RoundGreen_Style"
-        android:layout_width="@dimen/dp_78"
-        android:layout_height="@dimen/dp_38"
-        android:layout_marginTop="@dimen/dp_10"
-        android:text="@string/status_layout_retry"
-        android:textColor="@color/white"
-        android:textSize="@dimen/sp_14" />
+        style="@style/_Btn_RoundGreen_Style"
+        android:layout_width="@dimen/_dp_78"
+        android:layout_height="@dimen/_dp_38"
+        android:layout_marginTop="@dimen/_dp_10"
+        android:text="@string/_state_retry"
+        android:textColor="@color/_white"
+        android:textSize="@dimen/_sp_14" />
 
     <View
         android:layout_width="wrap_content"

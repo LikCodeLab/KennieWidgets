@@ -124,7 +124,7 @@ public class BaseStateConfig<T extends BaseStateConfig<T>> {
                     });
                     addImageView(R.drawable.ic_state_error);
                     if (!TextUtils.isEmpty(getMsg())) {
-                        int padding = context.getResources().getDimensionPixelSize(R.dimen.sp_8);
+                        int padding = context.getResources().getDimensionPixelSize(R.dimen._sp_8);
                         addTextView("错误信息：" + getMsg(), Color.RED, 14, 2 * padding);
                         addTextView(R.string._text_error, Color.GRAY);
                     } else {
