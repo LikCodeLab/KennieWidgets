@@ -3,4 +3,8 @@
     <string name="example_check_view">演示勾选(CheckView)</string>
     <string name="example_label_tag_layout_view">演示标签(LabelTagLayout)</string>
 
+    <string-array name="item_array">
+        <item>1.演示勾选(CheckView)</item>
+        <item>2.演示标签(LabelTagLayout)</item>
+    </string-array>
 </resources>

@@ -17,10 +17,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tag_layout_fit_num="1"
-        app:tag_layout_horizontal_interval="20dp"
+        app:tag_layout_random_color="true"
+        app:tag_layout_horizontal_interval="@dimen/dp_20"
         app:tag_layout_press_feedback="true"
-        app:tag_layout_vertical_interval="10dp"
-        app:tag_view_text_size="16sp" />
+        app:tag_layout_vertical_interval="@dimen/dp_10"
+        app:tag_view_text_size="@dimen/sp_20" />
 
 
     <com.kennie.views.label.LabelTagView

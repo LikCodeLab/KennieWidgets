@@ -7,20 +7,14 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/function1"
-        android:layout_marginTop="@dimen/dp_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/example_check_view"
-        android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/function2"
-        android:layout_marginTop="@dimen/dp_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/example_label_tag_layout_view"
-        android:layout_gravity="center"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="8"
+        tools:listitem="@android:layout/simple_list_item_1" />
 
 </LinearLayout>
