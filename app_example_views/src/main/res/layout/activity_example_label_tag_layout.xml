@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.kennie.views.label.LabelTagLayout
+        android:id="@+id/tag_layout"
+        style="@style/LabelTagLayout.RandomColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tag_layout_fit_num="1"
+        app:tag_layout_horizontal_interval="20dp"
+        app:tag_layout_press_feedback="true"
+        app:tag_layout_vertical_interval="10dp"
+        app:tag_view_text_size="16sp" />
+
+
+    <com.kennie.views.label.LabelTagView
+        android:id="@+id/tag_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_20"
+        app:tag_bg_color="@android:color/white"
+        app:tag_bg_color_check="@android:color/holo_green_light"
+        app:tag_border_color="@android:color/holo_green_light"
+        app:tag_border_color_check="@android:color/holo_green_light"
+        app:tag_checked="true"
+        app:tag_icon_padding="10dp"
+        app:tag_press_feedback="true"
+        app:tag_text="单波纹"
+        app:tag_text_check="我要取消"
+        app:tag_text_color="@android:color/holo_green_light"
+        app:tag_text_color_check="@android:color/white" />
+
+    <com.kennie.views.label.LabelTagView
+        android:id="@+id/tag_multi_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_20"
+        app:tag_bg_color="@android:color/white"
+        app:tag_bg_color_check="@android:color/holo_green_light"
+        app:tag_border_color="@android:color/holo_green_light"
+        app:tag_border_color_check="@android:color/holo_green_light"
+        app:tag_gravity="right"
+        app:tag_icon_padding="10dp"
+        app:tag_press_feedback="true"
+        app:tag_text="多波纹"
+        app:tag_text_check="我要取消"
+        app:tag_text_color="@android:color/holo_green_light"
+        app:tag_text_color_check="@android:color/white"
+        app:tag_text_size="18sp" />
+
+</LinearLayout>

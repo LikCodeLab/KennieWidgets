@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">演示(Views)</string>
+    <string name="example_check_view">演示勾选(CheckView)</string>
+    <string name="example_label_tag_layout_view">演示标签(LabelTagLayout)</string>
+
+</resources>

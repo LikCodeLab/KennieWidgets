@@ -1,9 +1,9 @@
-# KennieLibTemplate
+# KennieViews
 
 <p align="center"><img src="./resources/screenshots/logo.png" width="10%"/></p>
 
 <p align="center">
-    <strong>Android Library 模板库</strong>
+    <strong>KennieViews 库</strong>
     <br>
     <a href="https://kennielab.github.io/KennieLibTemplate/">使用文档</a>
     <br>
@@ -19,7 +19,7 @@
 
 ## 简介
 
-Android Library 模板库
+一个自定义视图、控件
 
 如有任何疑问或者Bug，请在 github 上公开讨论[技术问题](https://github.com/kennielab/KennieLetterIndexBar/issues)
 
