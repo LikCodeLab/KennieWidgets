@@ -18,3 +18,5 @@ include ':library_views'
 include ':library_views_state_one'
 include ':library_views_state_two'
 
+include ':library_views_tagflow'
+include ':app_example_tagflow'

@@ -1,7 +1,6 @@
 # TagLayout
-https://github.com/Rukey7/TagLayout
 [![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html) [![](https://jitpack.io/v/Rukey7/TagLayout.svg)](https://jitpack.io/#Rukey7/TagLayout)
-
+https://github.com/Rukey7/TagLayout
 ### 多功能的标签流布局
 
 ## Screenshot
