@@ -5,7 +5,7 @@
 <p align="center">
     <strong>KennieViews 库</strong>
     <br>
-    <a href="https://kennielab.github.io/KennieLibTemplate/">使用文档</a>
+    <a href="https://kennielab.github.io/KennieViews/">使用文档</a>
     <br>
 </p>
 
@@ -21,7 +21,7 @@
 
 一个自定义视图、控件
 
-如有任何疑问或者Bug，请在 github 上公开讨论[技术问题](https://github.com/kennielab/KennieLetterIndexBar/issues)
+如有任何疑问或者Bug，请在 github 上公开讨论[技术问题](https://github.com/kennielab/KennieViews/issues)
 
 **开源不易，如果喜欢的话希望给个 `Star` 或 `Fork` ^_^ ，谢谢~~**
 
@@ -57,7 +57,7 @@
 
 <div>
 
-Latest Version：[![](https://jitpack.io/v/kennielab/KennieLibTemplate.svg)](https://jitpack.io/#kennielab/KennieLibTemplate)
+Latest Version：[![](https://jitpack.io/v/kennielab/KennieViews.svg)](https://jitpack.io/#kennielab/KennieViews)
 
 1) 在 project 的 build.gradle 文件中找到 `allprojects{}` 代码块添加以下代码：
 
@@ -77,12 +77,12 @@ allprojects {
 
 ```
 def lib = "0.0.2"
-implementation "com.github.kennielab:KennieLibTemplate:${lib}"
+implementation "com.github.kennielab:KennieViews:${lib}"
 ```
 
 ### Wiki使用
 
-具体的使用说明，请参阅 [DOC](https://kennielab.github.io/KennieLibTemplate/)
+具体的使用说明，请参阅 [DOC](https://kennielab.github.io/KennieViews/)
 
 ## 更新日志
 - [详细日志](./UPDATELOG.md)
