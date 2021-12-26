@@ -17,7 +17,12 @@ import com.kennie.views.R;
 
 
 /**
- * 带清除按钮的 EditText
+ * @项目名 KennieViews
+ * @类名称 PasswordEditText
+ * @类描述 带清除按钮的EditText
+ * @创建人 Kennie
+ * @修改人
+ * @创建时间 2021/11/18 0:15
  */
 public final class ClearEditText extends AppCompatEditText
         implements View.OnTouchListener,
@@ -42,7 +47,7 @@ public final class ClearEditText extends AppCompatEditText
     public ClearEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        mClearDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable.ic_input_delete));
+        mClearDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable._icon_input_delete));
         mClearDrawable.setBounds(0, 0, mClearDrawable.getIntrinsicWidth(), mClearDrawable.getIntrinsicHeight());
         setDrawableVisible(false);
         super.setOnTouchListener(this);

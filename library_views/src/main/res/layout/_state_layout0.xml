@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0px"
+        android:layout_weight="1" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/_iv_status_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_dp_10"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        tools:src="@drawable/_icon_vector_state_error" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/_iv_status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_dp_10"
+        android:textColor="@color/_black30"
+        tools:text="提示文字"
+        android:textSize="@dimen/_sp_14"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/_iv_status_retry"
+        style="@style/_Btn_RoundGreen_Style"
+        android:layout_width="@dimen/_dp_78"
+        android:layout_height="@dimen/_dp_38"
+        android:layout_marginTop="@dimen/_dp_10"
+        android:text="@string/_state_retry"
+        android:textColor="@color/_white"
+        android:textSize="@dimen/_sp_14" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0px"
+        android:layout_weight="1.5" />
+
+</LinearLayout>

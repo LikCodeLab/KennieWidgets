@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="main_state">演示状态布局(StateManager)</string>
+    <string name="state0_example">1.0 演示状态布局(StateLayout0)</string>
+    <string name="state1_example">1.1 演示状态布局(StateManager)</string>
+    <string name="state2_example">1.2 演示状态布局(StateLayout)</string>
+
+
+    <string-array name="state_main_array">
+        <item>@string/state0_example</item>
+        <item>@string/state1_example</item>
+        <item>@string/state2_example</item>
+    </string-array>
+
+    <string name="text_content_show">这是要显示的内容页面~</string>
+
+
+</resources>

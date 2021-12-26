@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kennie.example.state">
+
+    <application
+        android:name=".App"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/main_state"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KennieViews">
+
+        <activity
+            android:name=".MainStateActivity"
+            android:exported="true"
+            android:label="@string/main_state">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 1.0 演示状态布局(StateLayout0)  -->
+        <activity
+            android:name=".state0.State0ExampleActivity"
+            android:exported="false"
+            android:label="@string/state0_example" />
+
+        <!-- 1.1 演示状态布局(StateManager)  -->
+        <activity
+            android:name=".state1.State1ExampleActivity"
+            android:exported="false"
+            android:label="@string/state1_example" />
+
+        <!-- 1.2 演示状态布局(StateLayout)  -->
+        <activity
+            android:name=".state2.State2ExampleActivity"
+            android:exported="false"
+            android:label="@string/state2_example" />
+    </application>
+
+</manifest>

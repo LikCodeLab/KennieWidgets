@@ -96,7 +96,7 @@ public class CountDownView extends AppCompatTextView implements Runnable {
             return;
         }
         mCurrentSecond--;
-        setText(getContext().getString(R.string.views_count_down_apply, mCurrentSecond, DEFAULT_TIME_UNIT));
+        setText(getContext().getString(R.string._countdownview_apply, mCurrentSecond, DEFAULT_TIME_UNIT));
         //setText(mCurrentSecond + " " + TIME_UNIT);
         postDelayed(this, DEFAULT_DELAY_MILLIS);
     }

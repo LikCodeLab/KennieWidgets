@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- CountDownView(验证码倒计时) -->
-    <string name="views_count_down_apply">%1$d %2$s</string>
+    <string name="_countdownview_apply">%1$d %2$s</string>
+
+    <string name="scorpio_loading">正在加载…</string>
 </resources>

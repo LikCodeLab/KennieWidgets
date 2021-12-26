@@ -1,0 +1,30 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply from: "${rootDir}/configs/tools/gradle/app.gradle"
+
+android {
+
+    defaultConfig {
+        applicationId "com.kennie.example.view"
+        versionCode 1
+        versionName "1.0"
+    }
+
+}
+
+dependencies {
+    implementation depK.core
+    implementation depX.appcompat
+    implementation depX.material
+    implementation depX.recyclerview
+    implementation project(':library_views')
+    implementation adapterX.BaseRecyclerViewAdapterHelper
+    implementation kennieX.i18n
+    implementation kennieX.res
+    // 动画解析库：https://github.com/airbnb/lottie-android
+    // 动画资源：https://lottiefiles.com、https://icons8.com/animated-icons
+    implementation 'com.airbnb.android:lottie:4.2.1'
+   }

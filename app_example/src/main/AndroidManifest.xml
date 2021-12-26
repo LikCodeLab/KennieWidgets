@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kennie.example.view">
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_logo"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.MaterialComponents.Light">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- 自定义Widgets -->
+        <activity
+            android:name=".MainWidgetActivity"
+            android:exported="false"
+            android:label="@string/main_widget" />
+        <activity
+            android:name=".widget.WidgetExampleActivity"
+            android:exported="false"
+            android:label="@string/widget_example1" /> <!-- 自定义Views -->
+        <activity
+            android:name=".MainViewsActivity"
+            android:exported="false"
+            android:label="@string/main_views" />
+        <activity
+            android:name=".views.SlantedTextViewExampleActivity"
+            android:exported="false"
+            android:label="@string/views_SlantedTextView1" />
+        <activity
+            android:name=".views.CheckViewExampleActivity"
+            android:exported="false"
+            android:label="@string/views_CheckView2" />
+    </application>
+
+</manifest>

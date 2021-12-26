@@ -1,5 +1,6 @@
 package com.kennie.views;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -10,194 +11,160 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.Typeface;
+import android.os.Build;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
-
 /**
- * 一个倾斜的 TextView，适用于标签效果
+ * @项目名 KennieViews
+ * @类名称 SlantedTextView
+ * @类描述 倾斜的TextView，适用于左上左下右上右下角
+ * @创建人 Kennie
+ * @修改人
+ * @创建时间 2021/12/26 11:39
  */
 public class SlantedTextView extends View {
+
+    public static final int MODE_LEFT = 0;
+    public static final int MODE_RIGHT = 1;
+    public static final int MODE_LEFT_BOTTOM = 2;
+    public static final int MODE_RIGHT_BOTTOM = 3;
+    public static final int MODE_LEFT_TRIANGLE = 4;
+    public static final int MODE_RIGHT_TRIANGLE = 5;
+    public static final int MODE_LEFT_BOTTOM_TRIANGLE = 6;
+    public static final int MODE_RIGHT_BOTTOM_TRIANGLE = 7;
 
     /**
      * 旋转角度
      */
     public static final int ROTATE_ANGLE = 45;
-
     /**
-     * 背景画笔
+     * 倾斜背景画笔
      */
-    private final Paint mBackgroundPaint;
+    private Paint mBackgroundPaint;
+    /**
+     * 倾斜背景色(默认Color.TRANSPARENT)
+     */
+    private int mSlantedBackgroundColor = Color.TRANSPARENT;
+
     /**
      * 文字画笔
      */
-    private final TextPaint mTextPaint;
+    private TextPaint mTextPaint;
+    /**
+     * 显示的文本内容
+     */
+    private String mSlantedText = "";
+    /**
+     * 显示的文本大小(默认14)
+     */
+    private float mTextSize = 14;
+    /**
+     * 显示的文本颜色(默认Color.WHITE)
+     */
+    private int mTextColor = Color.WHITE;
 
     /**
-     * 显示的文本
+     * 倾斜长度（默认40）
      */
-    @NonNull
-    private String mText = "";
-    /**
-     * 倾斜重心
-     */
-    private int mGravity;
-    /**
-     * 是否绘制成三角形的
-     */
-    private boolean mTriangle;
-    /**
-     * 背景颜色
-     */
-    private int mColorBackground;
+    private float mSlantedLength = 40;
 
     /**
-     * 文字测量范围装载
+     * 倾斜模式(默认左上角)
      */
-    private final Rect mTextBounds = new Rect();
-    /**
-     * 测量出来的文本高度
-     */
-    private int mTextHeight;
+    private int mMode = MODE_LEFT;
 
     public SlantedTextView(Context context) {
         this(context, null);
     }
 
     public SlantedTextView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        this(context, attrs, -1);
     }
 
     public SlantedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(attrs);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public SlantedTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        init(attrs);
+    }
+
+    public void init(AttributeSet attrs) {
+        TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.SlantedTextView);
+
+        mTextSize = array.getDimension(R.styleable.SlantedTextView_slantedTextSize, mTextSize);
+        mTextColor = array.getColor(R.styleable.SlantedTextView_slantedTextColor, mTextColor);
+        mSlantedLength = array.getDimension(R.styleable.SlantedTextView_slantedLength, mSlantedLength);
+        mSlantedBackgroundColor = array.getColor(R.styleable.SlantedTextView_slantedBackgroundColor, mSlantedBackgroundColor);
+
+        if (array.hasValue(R.styleable.SlantedTextView_slantedText)) {
+            mSlantedText = array.getString(R.styleable.SlantedTextView_slantedText);
+        }
+
+        if (array.hasValue(R.styleable.SlantedTextView_slantedMode)) {
+            mMode = array.getInt(R.styleable.SlantedTextView_slantedMode, 0);
+        }
+        array.recycle();
 
         mBackgroundPaint = new Paint();
         mBackgroundPaint.setStyle(Paint.Style.FILL);
         mBackgroundPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
         mBackgroundPaint.setAntiAlias(true);
+        mBackgroundPaint.setColor(mSlantedBackgroundColor);
 
         mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setAntiAlias(true);
-
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SlantedTextView);
-
-        setText(array.getString(R.styleable.SlantedTextView_android_text));
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(R.styleable.SlantedTextView_android_textSize,
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics())));
-        setTextColor(array.getColor(R.styleable.SlantedTextView_android_textColor, Color.WHITE));
-        setTextStyle(Typeface.defaultFromStyle(array.getInt(R.styleable.SlantedTextView_android_textStyle, Typeface.NORMAL)));
-        setGravity(array.getInt(R.styleable.SlantedTextView_android_gravity, Gravity.END));
-        setColorBackground(array.getColor(R.styleable.SlantedTextView_android_colorBackground, getAccentColor()));
-        setTriangle(array.getBoolean(R.styleable.SlantedTextView_base_triangle, false));
-
-        array.recycle();
+        mTextPaint.setTextSize(mTextSize);
+        mTextPaint.setColor(mTextColor);
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        mTextPaint.getTextBounds(mText, 0, mText.length(), mTextBounds);
-        mTextHeight = mTextBounds.height() + getPaddingTop() + getPaddingBottom();
-
-        int width = 0;
-        switch (MeasureSpec.getMode(widthMeasureSpec)) {
-            case MeasureSpec.EXACTLY:
-                width = MeasureSpec.getSize(widthMeasureSpec);
-                break;
-            case MeasureSpec.AT_MOST:
-            case MeasureSpec.UNSPECIFIED:
-                width = mTextBounds.width() + getPaddingLeft() + getPaddingRight();
-                break;
-            default:
-                break;
-        }
-
-        int height = 0;
-        switch (MeasureSpec.getMode(heightMeasureSpec)) {
-            case MeasureSpec.EXACTLY:
-                height = MeasureSpec.getSize(heightMeasureSpec);
-                break;
-            case MeasureSpec.AT_MOST:
-            case MeasureSpec.UNSPECIFIED:
-                height = mTextBounds.height() + getPaddingTop() + getPaddingBottom();
-                break;
-            default:
-                break;
-        }
-
-        setMeasuredDimension(Math.max(width, height), Math.max(width, height));
-    }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        // 绘制背景
         drawBackground(canvas);
+        // 绘制文本
         drawText(canvas);
     }
 
-    /**
-     * 绘制背景
-     */
+
     private void drawBackground(Canvas canvas) {
         Path path = new Path();
-        int width = canvas.getWidth();
-        int height = canvas.getHeight();
-        switch (mGravity) {
-            // 左上角
-            case Gravity.LEFT:
-            case Gravity.LEFT | Gravity.TOP:
-                if (mTriangle) {
-                    path.lineTo(0, height);
-                    path.lineTo(width, 0);
-                } else {
-                    path.moveTo(width, 0);
-                    path.lineTo(0, height);
-                    path.lineTo(0, height - mTextHeight);
-                    path.lineTo(width - mTextHeight, 0);
-                }
+        int w = getWidth();
+        int h = getHeight();
+
+        if (w != h) throw new IllegalStateException("SlantedTextView's width must equal to height");
+
+        switch (mMode) {
+            case MODE_LEFT:
+                path = getModeLeftPath(path, w, h);
                 break;
-            // 右上角
-            case Gravity.NO_GRAVITY:
-            case Gravity.RIGHT:
-            case Gravity.RIGHT | Gravity.TOP:
-                if (mTriangle) {
-                    path.lineTo(width, 0);
-                    path.lineTo(width, height);
-                } else {
-                    path.lineTo(width, height);
-                    path.lineTo(width, height - mTextHeight);
-                    path.lineTo(mTextHeight * 1f, 0);
-                }
+            case MODE_RIGHT:
+                path = getModeRightPath(path, w, h);
                 break;
-            // 左下角
-            case Gravity.BOTTOM:
-            case Gravity.LEFT | Gravity.BOTTOM:
-                if (mTriangle) {
-                    path.lineTo(width, height);
-                    path.lineTo(0, height);
-                } else {
-                    path.lineTo(width, height);
-                    path.lineTo(width - mTextHeight, height);
-                    path.lineTo(0, mTextHeight);
-                }
+            case MODE_LEFT_BOTTOM:
+                path = getModeLeftBottomPath(path, w, h);
                 break;
-            // 右下角
-            case Gravity.RIGHT | Gravity.BOTTOM:
-                if (mTriangle) {
-                    path.moveTo(0, height);
-                    path.lineTo(width, height);
-                    path.lineTo(width, 0);
-                } else {
-                    path.moveTo(0, height);
-                    path.lineTo(mTextHeight * 1f, height);
-                    path.lineTo(width, mTextHeight);
-                    path.lineTo(width, 0);
-                }
+            case MODE_RIGHT_BOTTOM:
+                path = getModeRightBottomPath(path, w, h);
+                break;
+            case MODE_LEFT_TRIANGLE:
+                path = getModeLeftTrianglePath(path, w, h);
+                break;
+            case MODE_RIGHT_TRIANGLE:
+                path = getModeRightTrianglePath(path, w, h);
+                break;
+            case MODE_LEFT_BOTTOM_TRIANGLE:
+                path = getModeLeftBottomTrianglePath(path, w, h);
+                break;
+            case MODE_RIGHT_BOTTOM_TRIANGLE:
+                path = getModeRightBottomTrianglePath(path, w, h);
                 break;
             default:
                 throw new IllegalArgumentException("are you ok?");
@@ -207,227 +174,210 @@ public class SlantedTextView extends View {
         canvas.save();
     }
 
-    /**
-     * 绘制文本
-     */
+    private Path getModeLeftPath(Path path, int w, int h) {
+        path.moveTo(w, 0);
+        path.lineTo(0, h);
+        path.lineTo(0, h - mSlantedLength);
+        path.lineTo(w - mSlantedLength, 0);
+        return path;
+    }
+
+    private Path getModeRightPath(Path path, int w, int h) {
+        path.lineTo(w, h);
+        path.lineTo(w, h - mSlantedLength);
+        path.lineTo(mSlantedLength, 0);
+        return path;
+    }
+
+    private Path getModeLeftBottomPath(Path path, int w, int h) {
+        path.lineTo(w, h);
+        path.lineTo(w - mSlantedLength, h);
+        path.lineTo(0, mSlantedLength);
+        return path;
+    }
+
+    private Path getModeRightBottomPath(Path path, int w, int h) {
+        path.moveTo(0, h);
+        path.lineTo(mSlantedLength, h);
+        path.lineTo(w, mSlantedLength);
+        path.lineTo(w, 0);
+        return path;
+    }
+
+    private Path getModeLeftTrianglePath(Path path, int w, int h) {
+        path.lineTo(0, h);
+        path.lineTo(w, 0);
+        return path;
+    }
+
+    private Path getModeRightTrianglePath(Path path, int w, int h) {
+        path.lineTo(w, 0);
+        path.lineTo(w, h);
+        return path;
+    }
+
+    private Path getModeLeftBottomTrianglePath(Path path, int w, int h) {
+        path.lineTo(w, h);
+        path.lineTo(0, h);
+        return path;
+    }
+
+    private Path getModeRightBottomTrianglePath(Path path, int w, int h) {
+        path.moveTo(0, h);
+        path.lineTo(w, h);
+        path.lineTo(w, 0);
+        return path;
+    }
+
     private void drawText(Canvas canvas) {
-        int width = canvas.getWidth() - mTextHeight / 2;
-        int height = canvas.getHeight() - mTextHeight / 2;
-        Rect rect;
-        RectF rectF;
-        int offset = mTextHeight / 2;
-
-        float toX;
-        float toY;
-        float centerX;
-        float centerY;
-        float angle;
-
-        switch (mGravity) {
-            // 左上角
-            case Gravity.LEFT:
-            case Gravity.LEFT | Gravity.TOP:
-                rect = new Rect(0, 0, width, height);
-                rectF = new RectF(rect);
-                rectF.right = mTextPaint.measureText(mText, 0, mText.length());
-                rectF.bottom = mTextPaint.descent() - mTextPaint.ascent();
-                rectF.left += (rect.width() - rectF.right) / 2.0f;
-                rectF.top += (rect.height() - rectF.bottom) / 2.0f;
-                toX = rectF.left;
-                toY = rectF.top - mTextPaint.ascent();
-                centerX = width / 2f;
-                centerY = height / 2f;
-                angle = -ROTATE_ANGLE;
-                break;
-            // 右上角
-            case Gravity.NO_GRAVITY:
-            case Gravity.RIGHT:
-            case Gravity.RIGHT | Gravity.TOP:
-                rect = new Rect(offset, 0, width + offset, height);
-                rectF = new RectF(rect);
-                rectF.right = mTextPaint.measureText(mText, 0, mText.length());
-                rectF.bottom = mTextPaint.descent() - mTextPaint.ascent();
-                rectF.left += (rect.width() - rectF.right) / 2.0f;
-                rectF.top += (rect.height() - rectF.bottom) / 2.0f;
-                toX = rectF.left;
-                toY = rectF.top - mTextPaint.ascent();
-                centerX = width / 2f + offset;
-                centerY = height / 2f;
-                angle = ROTATE_ANGLE;
-                break;
-            // 左下角
-            case Gravity.BOTTOM:
-            case Gravity.LEFT | Gravity.BOTTOM:
-                rect = new Rect(0, offset, width, height + offset);
-                rectF = new RectF(rect);
-                rectF.right = mTextPaint.measureText(mText, 0, mText.length());
-                rectF.bottom = mTextPaint.descent() - mTextPaint.ascent();
-                rectF.left += (rect.width() - rectF.right) / 2.0f;
-                rectF.top += (rect.height() - rectF.bottom) / 2.0f;
-                toX = rectF.left;
-                toY = rectF.top - mTextPaint.ascent();
-                centerX = width / 2f;
-                centerY = height / 2f + offset;
-                angle = ROTATE_ANGLE;
-                break;
-            // 右下角
-            case Gravity.RIGHT | Gravity.BOTTOM:
-                rect = new Rect(offset, offset, width + offset, height + offset);
-                rectF = new RectF(rect);
-                rectF.right = mTextPaint.measureText(mText, 0, mText.length());
-                rectF.bottom = mTextPaint.descent() - mTextPaint.ascent();
-                rectF.left += (rect.width() - rectF.right) / 2.0f;
-                rectF.top += (rect.height() - rectF.bottom) / 2.0f;
-                toX = rectF.left;
-                toY = rectF.top - mTextPaint.ascent();
-                centerX = width / 2f + offset;
-                centerY = height / 2f + offset;
-                angle = -ROTATE_ANGLE;
-                break;
-            default:
-                throw new IllegalArgumentException("are you ok?");
-        }
+        int w = (int) (canvas.getWidth() - mSlantedLength / 2);
+        int h = (int) (canvas.getHeight() - mSlantedLength / 2);
+        float[] xy = calculateXY(canvas, w, h);
+        float toX = xy[0];
+        float toY = xy[1];
+        float centerX = xy[2];
+        float centerY = xy[3];
+        float angle = xy[4];
 
         canvas.rotate(angle, centerX, centerY);
-        canvas.drawText(mText, toX, toY, mTextPaint);
+
+        canvas.drawText(mSlantedText, toX, toY, mTextPaint);
     }
 
-    /**
-     * 获取显示文本
-     */
+    private float[] calculateXY(Canvas canvas, int w, int h) {
+        float[] xy = new float[5];
+        Rect rect = null;
+        RectF rectF = null;
+        int offset = (int) (mSlantedLength / 2);
+        switch (mMode) {
+            case MODE_LEFT_TRIANGLE:
+            case MODE_LEFT:
+                rect = new Rect(0, 0, w, h);
+                rectF = new RectF(rect);
+                rectF.right = mTextPaint.measureText(mSlantedText, 0, mSlantedText.length());
+                rectF.bottom = mTextPaint.descent() - mTextPaint.ascent();
+                rectF.left += (rect.width() - rectF.right) / 2.0f;
+                rectF.top += (rect.height() - rectF.bottom) / 2.0f;
+                xy[0] = rectF.left;
+                xy[1] = rectF.top - mTextPaint.ascent();
+                xy[2] = w / 2f;
+                xy[3] = h / 2f;
+                xy[4] = -ROTATE_ANGLE;
+                break;
+            case MODE_RIGHT_TRIANGLE:
+            case MODE_RIGHT:
+                rect = new Rect(offset, 0, w + offset, h);
+                rectF = new RectF(rect);
+                rectF.right = mTextPaint.measureText(mSlantedText, 0, mSlantedText.length());
+                rectF.bottom = mTextPaint.descent() - mTextPaint.ascent();
+                rectF.left += (rect.width() - rectF.right) / 2.0f;
+                rectF.top += (rect.height() - rectF.bottom) / 2.0f;
+                xy[0] = rectF.left;
+                xy[1] = rectF.top - mTextPaint.ascent();
+                xy[2] = w / 2f + offset;
+                xy[3] = h / 2f;
+                xy[4] = ROTATE_ANGLE;
+                break;
+            case MODE_LEFT_BOTTOM_TRIANGLE:
+            case MODE_LEFT_BOTTOM:
+                rect = new Rect(0, offset, w, h + offset);
+                rectF = new RectF(rect);
+                rectF.right = mTextPaint.measureText(mSlantedText, 0, mSlantedText.length());
+                rectF.bottom = mTextPaint.descent() - mTextPaint.ascent();
+                rectF.left += (rect.width() - rectF.right) / 2.0f;
+                rectF.top += (rect.height() - rectF.bottom) / 2.0f;
+
+                xy[0] = rectF.left;
+                xy[1] = rectF.top - mTextPaint.ascent();
+                xy[2] = w / 2f;
+                xy[3] = h / 2f + offset;
+                xy[4] = ROTATE_ANGLE;
+                break;
+            case MODE_RIGHT_BOTTOM_TRIANGLE:
+            case MODE_RIGHT_BOTTOM:
+                rect = new Rect(offset, offset, w + offset, h + offset);
+                rectF = new RectF(rect);
+                rectF.right = mTextPaint.measureText(mSlantedText, 0, mSlantedText.length());
+                rectF.bottom = mTextPaint.descent() - mTextPaint.ascent();
+                rectF.left += (rect.width() - rectF.right) / 2.0f;
+                rectF.top += (rect.height() - rectF.bottom) / 2.0f;
+                xy[0] = rectF.left;
+                xy[1] = rectF.top - mTextPaint.ascent();
+                xy[2] = w / 2f + offset;
+                xy[3] = h / 2f + offset;
+                xy[4] = -ROTATE_ANGLE;
+                break;
+        }
+        return xy;
+    }
+
+    public SlantedTextView setText(String str) {
+        mSlantedText = str;
+        postInvalidate();
+        return this;
+    }
+
+    public SlantedTextView setText(int res) {
+        String str = getResources().getString(res);
+        if (!TextUtils.isEmpty(str)) {
+            setText(str);
+        }
+        return this;
+    }
+
     public String getText() {
-        return mText;
+        return mSlantedText;
+    }
+
+    public SlantedTextView setSlantedBackgroundColor(int color) {
+        mSlantedBackgroundColor = color;
+        mBackgroundPaint.setColor(mSlantedBackgroundColor);
+        postInvalidate();
+        return this;
+    }
+
+    public SlantedTextView setTextColor(int color) {
+        mTextColor = color;
+        mTextPaint.setColor(mTextColor);
+        postInvalidate();
+        return this;
     }
 
     /**
-     * 设置显示文本
+     * @param mode :
+     *             SlantedTextView.MODE_LEFT : top left
+     *             SlantedTextView.MODE_RIGHT :top right
+     * @return this
      */
-    public void setText(@StringRes int id) {
-        setText(getResources().getString(id));
+    public SlantedTextView setMode(int mode) {
+        if (mMode > MODE_RIGHT_BOTTOM_TRIANGLE || mMode < 0)
+            throw new IllegalArgumentException(mode + "is illegal argument ,please use right value");
+        this.mMode = mode;
+        postInvalidate();
+        return this;
     }
 
-    public void setText(String text) {
-        if (!TextUtils.isEmpty(text) && !getText().equals(text)) {
-            mText = text;
-            invalidate();
-        }
+    public int getMode() {
+        return mMode;
+    }
+
+    public SlantedTextView setTextSize(int size) {
+        this.mTextSize = size;
+        mTextPaint.setTextSize(mTextSize);
+        postInvalidate();
+        return this;
     }
 
     /**
-     * 获取字体颜色
+     * set slanted space length
+     *
+     * @param length
+     * @return this
      */
-    public int getTextColor() {
-        return mTextPaint.getColor();
+    public SlantedTextView setSlantedLength(int length) {
+        mSlantedLength = length;
+        postInvalidate();
+        return this;
     }
 
-    /**
-     * 设置字体颜色
-     */
-    public void setTextColor(int color) {
-        if (getTextColor() != color) {
-            mTextPaint.setColor(color);
-            invalidate();
-        }
-    }
-
-    /**
-     * 获取字体大小
-     */
-    public float getTextSize() {
-        return mTextPaint.getTextSize();
-    }
-
-    /**
-     * 设置字体大小
-     */
-    public void setTextSize(float size) {
-        setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
-    }
-
-    public void setTextSize(int unit, float size) {
-        float textSize = TypedValue.applyDimension(unit, size, getResources().getDisplayMetrics());
-        if (getTextSize() != textSize) {
-            mTextPaint.setTextSize(textSize);
-            invalidate();
-        }
-    }
-
-    /**
-     * 获取文本样式
-     */
-    public Typeface getTextStyle() {
-        return mTextPaint.getTypeface();
-    }
-
-    /**
-     * 设置文本样式
-     */
-    public void setTextStyle(Typeface tf) {
-        if (getTextStyle() != tf) {
-            mTextPaint.setTypeface(tf);
-            invalidate();
-        }
-    }
-
-    /**
-     * 获取背景颜色
-     */
-    public int getColorBackground() {
-        return mColorBackground;
-    }
-
-    /**
-     * 设置背景颜色
-     */
-    public void setColorBackground(int color) {
-        if (getColorBackground() != color) {
-            mColorBackground = color;
-            mBackgroundPaint.setColor(mColorBackground);
-            invalidate();
-        }
-    }
-
-    /**
-     * 获取倾斜重心
-     */
-    public int getGravity() {
-        return mGravity;
-    }
-
-    /**
-     * 设置倾斜重心
-     */
-    public void setGravity(int gravity) {
-        if (mGravity != gravity) {
-            // 适配布局反方向
-            mGravity = Gravity.getAbsoluteGravity(gravity, getResources().getConfiguration().getLayoutDirection());
-            invalidate();
-        }
-    }
-
-    /**
-     * 当前是否是三角形
-     */
-    public boolean isTriangle() {
-        return mTriangle;
-    }
-
-    /**
-     * 是否设置成三角形
-     */
-    public void setTriangle(boolean triangle) {
-        if (isTriangle() != triangle) {
-            mTriangle = triangle;
-            invalidate();
-        }
-    }
-
-    /**
-     * 获取当前主题的强调色
-     */
-    private int getAccentColor() {
-        TypedValue typedValue = new TypedValue();
-        getContext().getTheme().resolveAttribute(R.attr.colorAccent, typedValue, true);
-        return typedValue.data;
-    }
 }

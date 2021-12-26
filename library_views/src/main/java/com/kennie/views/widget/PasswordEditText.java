@@ -21,7 +21,7 @@ import com.kennie.views.R;
 /**
  * @项目名 KennieViews
  * @类名称 PasswordEditText
- * @类描述 密码隐藏显示 EditText
+ * @类描述 密码隐藏显示EditText
  * @创建人 Kennie
  * @修改人
  * @创建时间 2021/11/18 0:15
@@ -51,10 +51,10 @@ public final class PasswordEditText extends AppCompatEditText
     public PasswordEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        mVisibleDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable.ic_password_off));
+        mVisibleDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable._icon_password_off));
         mVisibleDrawable.setBounds(0, 0, mVisibleDrawable.getIntrinsicWidth(), mVisibleDrawable.getIntrinsicHeight());
 
-        mInvisibleDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable.ic_password_on));
+        mInvisibleDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable._icon_password_on));
         mInvisibleDrawable.setBounds(0, 0, mInvisibleDrawable.getIntrinsicWidth(), mInvisibleDrawable.getIntrinsicHeight());
 
         mCurrentDrawable = mVisibleDrawable;

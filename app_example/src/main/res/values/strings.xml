@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">演示Views</string>
+
+    <string-array name="main_array">
+        <item>@string/main_widget</item>
+        <item>@string/main_views</item>
+    </string-array>
+
+    <string name="main_widget">0.演示控件(Widget)</string>
+    <string name="widget_example1">0.1 演示控件</string>
+
+    <string-array name="widget_main_array">
+        <item>@string/widget_example1</item>
+    </string-array>
+
+    <string name="main_views">1.演示自定义(Views)</string>
+    <string name="views_SlantedTextView1">1.1 演示各种角度倾斜TextView(SlantedTextView)</string>
+    <string name="views_CheckView2">1.2 演示勾选(CheckView)</string>
+
+    <string-array name="views_main_array">
+        <item>@string/views_SlantedTextView1</item>
+        <item>@string/views_CheckView2</item>
+    </string-array>
+
+</resources>

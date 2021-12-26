@@ -2,7 +2,6 @@ package com.kennie.views;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -11,7 +10,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.RectF;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -80,12 +78,6 @@ public class CheckView extends View implements Checkable {
 
     public CheckView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CheckView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
     }
 
@@ -322,7 +314,7 @@ public class CheckView extends View implements Checkable {
 
 
     /**
-     * @param checked
+     * @param checked       true | false
      * @param enableAnimate 开启动画
      */
     public void setChecked(boolean checked, boolean enableAnimate) {
@@ -355,9 +347,9 @@ public class CheckView extends View implements Checkable {
     /**
      * 动画转换工具
      *
-     * @param duration
-     * @param listener
-     * @param values
+     * @param duration duration
+     * @param listener AnimatorUpdateListener
+     * @param values   values
      */
     private void ofFloat(long duration, ValueAnimator.AnimatorUpdateListener listener, float... values) {
         ValueAnimator animator = ValueAnimator.ofFloat(values);
@@ -378,8 +370,7 @@ public class CheckView extends View implements Checkable {
         /**
          * 正方行
          */
-        SQUARE(1),
-        ;
+        SQUARE(1);
 
         public int mode;
 
