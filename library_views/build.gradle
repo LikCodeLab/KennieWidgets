@@ -4,7 +4,7 @@ plugins {
 }
 
 apply from: "${rootDir}/configs/tools/gradle/library.gradle"
-apply from: "${rootDir}/configs/tools/publish/publish.gradle"
+//apply from: "${rootDir}/configs/tools/publish/publish.gradle"
 
 android {
 

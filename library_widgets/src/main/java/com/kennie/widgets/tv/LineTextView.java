@@ -16,9 +16,9 @@ import com.kennie.widgets.R;
 
 /**
  * project : KennieViews
- * class_name :  CountDownTextView
+ * class_name :  LineTextView
  * author : Kennie
- * date :
+ * date : 2021/11/18 0:13
  * desc : 带线条的TextView
  */
 public class LineTextView extends AppCompatTextView {

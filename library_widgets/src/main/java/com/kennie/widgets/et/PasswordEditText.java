@@ -19,12 +19,11 @@ import com.kennie.widgets.R;
 
 
 /**
- * @项目名 KennieViews
- * @类名称 PasswordEditText
- * @类描述 密码隐藏显示EditText
- * @创建人 Kennie
- * @修改人
- * @创建时间 2021/11/18 0:15
+ * project : KennieViews
+ * class_name :  PasswordEditText
+ * author : Kennie
+ * date : 2021/11/18 0:13
+ * desc : 密码隐藏显示EditText
  */
 public final class PasswordEditText extends AppCompatEditText
         implements View.OnTouchListener,

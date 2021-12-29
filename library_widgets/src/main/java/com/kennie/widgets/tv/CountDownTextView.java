@@ -10,12 +10,11 @@ import com.kennie.widgets.R;
 
 
 /**
- * @项目名 KennieViews
- * @类名称 CountDownTextView
- * @类描述 验证码倒计时
- * @创建人 Kennie
- * @修改人
- * @创建时间 2021/11/18 0:13
+ * project : KennieViews
+ * class_name :  CountDownTextView
+ * author : Kennie
+ * date : 2021/11/18 0:13
+ * desc : 验证码倒计时
  */
 public class CountDownTextView extends AppCompatTextView implements Runnable {
 

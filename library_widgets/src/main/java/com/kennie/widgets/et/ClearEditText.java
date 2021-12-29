@@ -17,12 +17,11 @@ import com.kennie.widgets.R;
 
 
 /**
- * @项目名 KennieViews
- * @类名称 ClearEditText
- * @类描述 带清除按钮的EditText
- * @创建人 Kennie
- * @修改人
- * @创建时间 2021/11/18 0:15
+ * project : KennieViews
+ * class_name :  ClearEditText
+ * author : Kennie
+ * date : 2021/11/18 0:13
+ * desc : 带清除按钮的EditText
  */
 public final class ClearEditText extends AppCompatEditText
         implements View.OnTouchListener,
