@@ -1,4 +1,4 @@
-package com.kennie.views;
+package com.kennie.widgets.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -17,24 +17,38 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.annotation.IntDef;
+
+import com.kennie.widgets.R;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+
 /**
- * @项目名 KennieViews
- * @类名称 SlantedTextView
- * @类描述 倾斜的TextView，适用于左上左下右上右下角
- * @创建人 Kennie
- * @修改人
- * @创建时间 2021/12/26 11:39
+ * project : KennieViews
+ * class_name :  SlantedTextView
+ * author : Kennie
+ * date : 2021/11/18 0:13
+ * desc : 倾斜的TextView(方向：左上左下右上右下角)
  */
 public class SlantedTextView extends View {
 
-    public static final int MODE_LEFT = 0;
-    public static final int MODE_RIGHT = 1;
-    public static final int MODE_LEFT_BOTTOM = 2;
-    public static final int MODE_RIGHT_BOTTOM = 3;
-    public static final int MODE_LEFT_TRIANGLE = 4;
-    public static final int MODE_RIGHT_TRIANGLE = 5;
-    public static final int MODE_LEFT_BOTTOM_TRIANGLE = 6;
-    public static final int MODE_RIGHT_BOTTOM_TRIANGLE = 7;
+    @Retention(RetentionPolicy.SOURCE)
+    @IntDef({SlantedType.MODE_LEFT, SlantedType.MODE_RIGHT, SlantedType.MODE_LEFT_BOTTOM
+            , SlantedType.MODE_RIGHT_BOTTOM, SlantedType.MODE_LEFT_TRIANGLE, SlantedType.MODE_RIGHT_TRIANGLE
+            , SlantedType.MODE_LEFT_BOTTOM_TRIANGLE, SlantedType.MODE_RIGHT_BOTTOM_TRIANGLE})
+    public @interface SlantedType {
+        public static final int MODE_LEFT = 0;
+        public static final int MODE_RIGHT = 1;
+        public static final int MODE_LEFT_BOTTOM = 2;
+        public static final int MODE_RIGHT_BOTTOM = 3;
+        public static final int MODE_LEFT_TRIANGLE = 4;
+        public static final int MODE_RIGHT_TRIANGLE = 5;
+        public static final int MODE_LEFT_BOTTOM_TRIANGLE = 6;
+        public static final int MODE_RIGHT_BOTTOM_TRIANGLE = 7;
+    }
+
 
     /**
      * 旋转角度
@@ -74,7 +88,7 @@ public class SlantedTextView extends View {
     /**
      * 倾斜模式(默认左上角)
      */
-    private int mMode = MODE_LEFT;
+    private int mMode = SlantedType.MODE_LEFT;
 
     public SlantedTextView(Context context) {
         this(context, null);
@@ -142,28 +156,28 @@ public class SlantedTextView extends View {
         if (w != h) throw new IllegalStateException("SlantedTextView's width must equal to height");
 
         switch (mMode) {
-            case MODE_LEFT:
+            case SlantedType.MODE_LEFT:
                 path = getModeLeftPath(path, w, h);
                 break;
-            case MODE_RIGHT:
+            case SlantedType.MODE_RIGHT:
                 path = getModeRightPath(path, w, h);
                 break;
-            case MODE_LEFT_BOTTOM:
+            case SlantedType.MODE_LEFT_BOTTOM:
                 path = getModeLeftBottomPath(path, w, h);
                 break;
-            case MODE_RIGHT_BOTTOM:
+            case SlantedType.MODE_RIGHT_BOTTOM:
                 path = getModeRightBottomPath(path, w, h);
                 break;
-            case MODE_LEFT_TRIANGLE:
+            case SlantedType.MODE_LEFT_TRIANGLE:
                 path = getModeLeftTrianglePath(path, w, h);
                 break;
-            case MODE_RIGHT_TRIANGLE:
+            case SlantedType.MODE_RIGHT_TRIANGLE:
                 path = getModeRightTrianglePath(path, w, h);
                 break;
-            case MODE_LEFT_BOTTOM_TRIANGLE:
+            case SlantedType.MODE_LEFT_BOTTOM_TRIANGLE:
                 path = getModeLeftBottomTrianglePath(path, w, h);
                 break;
-            case MODE_RIGHT_BOTTOM_TRIANGLE:
+            case SlantedType.MODE_RIGHT_BOTTOM_TRIANGLE:
                 path = getModeRightBottomTrianglePath(path, w, h);
                 break;
             default:
@@ -250,8 +264,8 @@ public class SlantedTextView extends View {
         RectF rectF = null;
         int offset = (int) (mSlantedLength / 2);
         switch (mMode) {
-            case MODE_LEFT_TRIANGLE:
-            case MODE_LEFT:
+            case SlantedType.MODE_LEFT_TRIANGLE:
+            case SlantedType.MODE_LEFT:
                 rect = new Rect(0, 0, w, h);
                 rectF = new RectF(rect);
                 rectF.right = mTextPaint.measureText(mSlantedText, 0, mSlantedText.length());
@@ -264,8 +278,8 @@ public class SlantedTextView extends View {
                 xy[3] = h / 2f;
                 xy[4] = -ROTATE_ANGLE;
                 break;
-            case MODE_RIGHT_TRIANGLE:
-            case MODE_RIGHT:
+            case SlantedType.MODE_RIGHT_TRIANGLE:
+            case SlantedType.MODE_RIGHT:
                 rect = new Rect(offset, 0, w + offset, h);
                 rectF = new RectF(rect);
                 rectF.right = mTextPaint.measureText(mSlantedText, 0, mSlantedText.length());
@@ -278,8 +292,8 @@ public class SlantedTextView extends View {
                 xy[3] = h / 2f;
                 xy[4] = ROTATE_ANGLE;
                 break;
-            case MODE_LEFT_BOTTOM_TRIANGLE:
-            case MODE_LEFT_BOTTOM:
+            case SlantedType.MODE_LEFT_BOTTOM_TRIANGLE:
+            case SlantedType.MODE_LEFT_BOTTOM:
                 rect = new Rect(0, offset, w, h + offset);
                 rectF = new RectF(rect);
                 rectF.right = mTextPaint.measureText(mSlantedText, 0, mSlantedText.length());
@@ -293,8 +307,8 @@ public class SlantedTextView extends View {
                 xy[3] = h / 2f + offset;
                 xy[4] = ROTATE_ANGLE;
                 break;
-            case MODE_RIGHT_BOTTOM_TRIANGLE:
-            case MODE_RIGHT_BOTTOM:
+            case SlantedType.MODE_RIGHT_BOTTOM_TRIANGLE:
+            case SlantedType.MODE_RIGHT_BOTTOM:
                 rect = new Rect(offset, offset, w + offset, h + offset);
                 rectF = new RectF(rect);
                 rectF.right = mTextPaint.measureText(mSlantedText, 0, mSlantedText.length());
@@ -350,7 +364,7 @@ public class SlantedTextView extends View {
      * @return this
      */
     public SlantedTextView setMode(int mode) {
-        if (mMode > MODE_RIGHT_BOTTOM_TRIANGLE || mMode < 0)
+        if (mMode > SlantedType.MODE_RIGHT_BOTTOM_TRIANGLE || mMode < 0)
             throw new IllegalArgumentException(mode + "is illegal argument ,please use right value");
         this.mMode = mode;
         postInvalidate();
