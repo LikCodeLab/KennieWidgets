@@ -1,4 +1,4 @@
-package com.kennie.views.widget;
+package com.kennie.widgets.tv;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,18 +6,18 @@ import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.kennie.views.R;
+import com.kennie.widgets.R;
 
 
 /**
  * @项目名 KennieViews
- * @类名称 CountDownView
+ * @类名称 CountDownTextView
  * @类描述 验证码倒计时
  * @创建人 Kennie
  * @修改人
  * @创建时间 2021/11/18 0:13
  */
-public class CountDownView extends AppCompatTextView implements Runnable {
+public class CountDownTextView extends AppCompatTextView implements Runnable {
 
     /**
      * 倒计时秒数
@@ -43,15 +43,15 @@ public class CountDownView extends AppCompatTextView implements Runnable {
     private CharSequence mRecordText;
 
 
-    public CountDownView(Context context) {
+    public CountDownTextView(Context context) {
         super(context);
     }
 
-    public CountDownView(Context context, @Nullable AttributeSet attrs) {
+    public CountDownTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CountDownView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CountDownTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -96,7 +96,7 @@ public class CountDownView extends AppCompatTextView implements Runnable {
             return;
         }
         mCurrentSecond--;
-        setText(getContext().getString(R.string._countdownview_apply, mCurrentSecond, DEFAULT_TIME_UNIT));
+        setText(getContext().getString(R.string._countdowntextview_apply, mCurrentSecond, DEFAULT_TIME_UNIT));
         //setText(mCurrentSecond + " " + TIME_UNIT);
         postDelayed(this, DEFAULT_DELAY_MILLIS);
     }

@@ -1,4 +1,4 @@
-package com.kennie.views;
+package com.kennie.widgets.view;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
@@ -15,10 +15,12 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Checkable;
 
+import com.kennie.widgets.R;
+
 /**
  * @项目名 KennieViews
  * @类名称 CheckView
- * @类描述 CheckBox 圆形 方形 View
+ * @类描述 带动画效果的CheckBox选择框(圆形、方形)
  * @创建人 Kennie
  * @修改人
  * @创建时间 2021/12/17 23:26
