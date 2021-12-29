@@ -1,11 +1,11 @@
-# KennieViews
+# KennieWidgets
 
 <p align="center"><img src="./resources/screenshots/logo.png" width="10%"/></p>
 
 <p align="center">
-    <strong>KennieViews 库</strong>
+    <strong>KennieWidgets 库</strong>
     <br>
-    <a href="https://kennielab.github.io/KennieViews/">使用文档</a>
+    <a href="https://kennielab.github.io/KennieWidgets/">使用文档</a>
     <br>
 </p>
 
@@ -19,9 +19,9 @@
 
 ## 简介
 
-一个自定义视图、控件
+> `KennieWidgets`是一个`Android`自定义控件库。包含多种常用控件以及自定义View。
 
-如有任何疑问或者Bug，请在 github 上公开讨论[技术问题](https://github.com/kennielab/KennieViews/issues)
+如有任何疑问或者Bug，请在 github 上公开讨论[技术问题](https://github.com/kennielab/KennieWidgets/issues)
 
 **开源不易，如果喜欢的话希望给个 `Star` 或 `Fork` ^_^ ，谢谢~~**
 
@@ -57,7 +57,7 @@
 
 <div>
 
-Latest Version：[![](https://jitpack.io/v/kennielab/KennieViews.svg)](https://jitpack.io/#kennielab/KennieViews)
+Latest Version：[![](https://jitpack.io/v/kennielab/KennieWidgets.svg)](https://jitpack.io/#kennielab/KennieWidgets)
 
 1) 在 project 的 build.gradle 文件中找到 `allprojects{}` 代码块添加以下代码：
 
@@ -75,14 +75,16 @@ allprojects {
 
 2) 在 app 的 build.gradle 文件中找到 `dependencies{}` 代码块，并在其中加入以下语句：
 
+Latest Version：[![](https://jitpack.io/v/kennielab/KennieWidgets.svg)](https://jitpack.io/#kennielab/KennieWidgets)
+
 ```
-def lib = "0.0.2"
-implementation "com.github.kennielab:KennieViews:${lib}"
+def lib = "0.0.1"
+implementation "com.github.kennielab:KennieWidgets:${lib}"
 ```
 
 ### Wiki使用
 
-具体的使用说明，请参阅 [DOC](https://kennielab.github.io/KennieViews/)
+具体的使用说明，请参阅 [DOC](https://kennielab.github.io/KennieWidgets/)
 
 ## 更新日志
 - [详细日志](./UPDATELOG.md)
