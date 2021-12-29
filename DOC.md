@@ -26,7 +26,7 @@
   |                     名称                      |                     描述                      |
   | :-------------------------------------------: | :---------------------------: |
   |  [`CountDownTextView`](#CountDownTextView)  |   验证码倒计时   |
-
+  |  [`LineTextView`](#LineTextView)  |   带线条的`TextView`   |
 
 * `View`自定义控件
 
