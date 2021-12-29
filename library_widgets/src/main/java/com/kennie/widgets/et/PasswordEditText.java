@@ -1,4 +1,4 @@
-package com.kennie.views.widget;
+package com.kennie.widgets.et;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -15,7 +15,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
-import com.kennie.views.R;
+import com.kennie.widgets.R;
 
 
 /**

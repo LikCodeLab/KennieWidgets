@@ -1,4 +1,4 @@
-package com.kennie.views.widget;
+package com.kennie.widgets.et;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -13,12 +13,12 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
-import com.kennie.views.R;
+import com.kennie.widgets.R;
 
 
 /**
  * @项目名 KennieViews
- * @类名称 PasswordEditText
+ * @类名称 ClearEditText
  * @类描述 带清除按钮的EditText
  * @创建人 Kennie
  * @修改人
@@ -47,7 +47,7 @@ public final class ClearEditText extends AppCompatEditText
     public ClearEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        mClearDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable._icon_input_delete));
+        mClearDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable._icon_edittext_delete));
         mClearDrawable.setBounds(0, 0, mClearDrawable.getIntrinsicWidth(), mClearDrawable.getIntrinsicHeight());
         setDrawableVisible(false);
         super.setOnTouchListener(this);
