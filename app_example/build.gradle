@@ -20,7 +20,7 @@ dependencies {
     implementation depX.appcompat
     implementation depX.material
     implementation depX.recyclerview
-    implementation project(':library_views')
+    implementation project(':library_views_old')
     implementation adapterX.BaseRecyclerViewAdapterHelper
     implementation kennieX.i18n
     implementation kennieX.res
