@@ -23,6 +23,11 @@
             android:name=".WidgetExampleActivity"
             android:exported="true"
             android:label="@string/main_widget"/>
+
+        <activity
+            android:name=".BadgeViewExampleActivity"
+            android:exported="true"
+            android:label="@string/main_badgeview"/>
     </application>
 
 </manifest>

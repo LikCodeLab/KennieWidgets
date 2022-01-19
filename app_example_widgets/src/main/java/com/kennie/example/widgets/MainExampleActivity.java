@@ -36,6 +36,9 @@ public class MainExampleActivity extends AppCompatActivity {
                     case 0:
                         startActivity(new Intent(MainExampleActivity.this, WidgetExampleActivity.class));
                         break;
+                    case 1:
+                        startActivity(new Intent(MainExampleActivity.this, BadgeViewExampleActivity.class));
+                        break;
                     default:
                         break;
                 }

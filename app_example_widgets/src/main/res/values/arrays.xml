@@ -3,10 +3,13 @@
 
     <string-array name="main_array">
         <item>@string/main_widget</item>
+        <item>@string/main_badgeview</item>
+
     </string-array>
 
 
     <string name="main_widget">0.演示各种Widget</string>
+    <string name="main_badgeview">1.演示BadgeView</string>
 
 
 </resources>

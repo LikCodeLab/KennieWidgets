@@ -35,7 +35,7 @@
   |  [`CheckView`](#CheckView)  |   带动画效果的`CheckBox`选择框(圆形、方形)   |
   |  [`SlantedTextView`](#SlantedTextView)  |   倾斜的TextView(方向：左上左下右上右下角)   |
 
-
+https://github.com/Li-Xiang-Lan/SlantedTextView
 
 #### BadgeView
 
