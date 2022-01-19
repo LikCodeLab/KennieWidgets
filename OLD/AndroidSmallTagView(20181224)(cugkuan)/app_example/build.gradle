@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+
+android {
+    compileSdk rootProject.ext.buildConfig.compileSdk
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.buildConfig.minSdk as Integer
+        targetSdkVersion rootProject.ext.buildConfig.targetSdk as Integer
+        applicationId "com.kennie.example.library"
+    }
+
+    compileOptions {
+        encoding 'UTF-8'
+        // jdk 1.8 开始支持 lambda 表达式
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+
+}
+
+dependencies {
+    implementation depK.core
+    implementation depX.appcompat
+    implementation depX.material
+    implementation project(':AndroidSmallTagView(20181224)(cugkuan)_library')
+}
