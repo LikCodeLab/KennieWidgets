@@ -112,6 +112,52 @@
         </LinearLayout>
 
 
+           <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_res_dp_5"
+            android:text="带动画效果的CheckBox选择框(圆形、方形)" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.kennie.lib.widgets.views.CheckView
+                android:id="@+id/main_activity_check_view1"
+                android:layout_width="@dimen/_res_dp_32"
+                android:layout_margin="@dimen/_res_dp_10"
+                android:layout_height="@dimen/_res_dp_32" />
+
+            <com.kennie.lib.widgets.views.CheckView
+                android:id="@+id/main_activity_check_view2"
+                android:layout_width="@dimen/_res_dp_32"
+                android:layout_height="@dimen/_res_dp_32"
+                android:layout_margin="@dimen/_res_dp_10"
+                app:cv_enable_bg="true"
+                app:cv_enable_border="false"
+                app:cv_tick_color="@android:color/white" />
+
+            <com.kennie.lib.widgets.views.CheckView
+                android:id="@+id/main_activity_check_view3"
+                android:layout_width="@dimen/_res_dp_32"
+                android:layout_height="@dimen/_res_dp_32"
+                android:layout_margin="@dimen/_res_dp_10"
+
+                app:cv_mode="square" />
+
+            <com.kennie.lib.widgets.views.CheckView
+                android:id="@+id/main_activity_check_view4"
+                android:layout_width="@dimen/_res_dp_32"
+                android:layout_height="@dimen/_res_dp_32"
+                android:layout_margin="@dimen/_res_dp_10"
+                app:cv_enable_bg="true"
+                app:cv_enable_border="false"
+                app:cv_mode="square"
+                app:cv_tick_color="@android:color/white" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </ScrollView>
