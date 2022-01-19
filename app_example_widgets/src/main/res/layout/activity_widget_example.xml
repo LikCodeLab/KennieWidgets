@@ -96,8 +96,8 @@
                 android:gravity="center"
                 android:padding="@dimen/_res_dp_10"
                 android:text="下划线"
-                app:ltv_line_interval="@dimen/_res_dp_5"
                 app:ltv_line_color="@color/_res_app_default_green"
+                app:ltv_line_interval="@dimen/_res_dp_5"
                 app:ltv_line_style="underline" />
 
             <com.kennie.lib.widgets.tv.LineTextView
@@ -112,7 +112,7 @@
         </LinearLayout>
 
 
-           <TextView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/_res_dp_5"
@@ -126,8 +126,8 @@
             <com.kennie.lib.widgets.views.CheckView
                 android:id="@+id/main_activity_check_view1"
                 android:layout_width="@dimen/_res_dp_32"
-                android:layout_margin="@dimen/_res_dp_10"
-                android:layout_height="@dimen/_res_dp_32" />
+                android:layout_height="@dimen/_res_dp_32"
+                android:layout_margin="@dimen/_res_dp_10" />
 
             <com.kennie.lib.widgets.views.CheckView
                 android:id="@+id/main_activity_check_view2"
@@ -155,6 +155,246 @@
                 app:cv_enable_border="false"
                 app:cv_mode="square"
                 app:cv_tick_color="@android:color/white" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_res_dp_5"
+            android:text="倾斜的View(方向：左上左下右上右下角)" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_height"
+                    android:layout_marginStart="@dimen/_res_dp_5">
+
+                    <ImageView
+                        android:id="@+id/left_img"
+                        android:layout_width="@dimen/img_width"
+                        android:layout_height="@dimen/img_height"
+                        android:src="@drawable/_res_img_state_empty" />
+
+                    <com.kennie.lib.widgets.views.SlantedView
+                        android:id="@+id/left_text"
+                        android:layout_width="@dimen/text_height"
+                        android:layout_height="@dimen/text_height"
+                        android:gravity="center"
+                        app:sv_slantedBackgroundColor="@color/primary"
+                        app:sv_slantedTextColor="@color/primary_light"
+                        app:sv_slantedLength="@dimen/text_slanted"
+                        app:sv_slantedMode="left"
+                        app:sv_slantedText="TEST"
+
+                        app:sv_slantedTextSize="@dimen/_res_sp_10" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_height"
+                    android:layout_marginStart="@dimen/_res_dp_5">
+
+                    <ImageView
+                        android:id="@+id/img_right"
+                        android:layout_width="@dimen/img_width"
+                        android:layout_height="@dimen/img_height"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/_res_img_state_empty" />
+
+                    <com.kennie.lib.widgets.views.SlantedView
+                        android:id="@+id/slv_right"
+                        android:layout_width="@dimen/text_height"
+                        android:layout_height="@dimen/text_height"
+                        android:layout_alignTop="@+id/img_right"
+                        android:layout_alignEnd="@+id/img_right"
+                        app:sv_slantedBackgroundColor="@color/_res_green"
+                        app:sv_slantedLength="@dimen/text_slanted"
+                        app:sv_slantedMode="right"
+                        app:sv_slantedText="TEST"
+                        app:sv_slantedTextSize="10sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_height"
+                    android:layout_marginStart="@dimen/_res_dp_10">
+
+                    <ImageView
+                        android:id="@+id/right_img"
+                        android:layout_width="@dimen/img_width"
+                        android:layout_height="@dimen/img_height"
+                        android:src="@drawable/_res_img_state_empty" />
+
+                    <com.kennie.lib.widgets.views.SlantedView
+                        android:layout_width="@dimen/text_height"
+                        android:layout_height="@dimen/text_height"
+                        android:layout_alignTop="@+id/right_img"
+                        android:layout_alignParentStart="true"
+                        app:sv_slantedBackgroundColor="@color/primary"
+                        app:sv_slantedTextColor="@color/primary_light"
+                        app:sv_slantedLength="@dimen/text_slanted"
+                        app:sv_slantedMode="left_triangle"
+                        app:sv_slantedText="TEST"
+                        app:sv_slantedTextSize="10sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_height"
+                    android:layout_marginStart="@dimen/_res_dp_5">
+
+                    <ImageView
+                        android:id="@+id/img_right_tri"
+                        android:layout_width="@dimen/img_width"
+                        android:layout_height="@dimen/img_height"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/_res_img_state_empty" />
+
+                    <com.kennie.lib.widgets.views.SlantedView
+                        android:id="@+id/slv_right_tri"
+                        android:layout_width="@dimen/text_height"
+                        android:layout_height="@dimen/text_height"
+                        android:layout_alignTop="@+id/img_right_tri"
+                        android:layout_alignEnd="@+id/img_right_tri"
+                        app:sv_slantedBackgroundColor="@color/_res_green"
+                        app:sv_slantedLength="@dimen/_res_dp_25"
+                        app:sv_slantedMode="right_triangle"
+                        app:sv_slantedText="TEST"
+                        app:sv_slantedTextSize="@dimen/_res_sp_10" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_height"
+                    android:layout_marginStart="@dimen/_res_dp_5">
+
+                    <ImageView
+                        android:id="@+id/left_bottom_imageView"
+                        android:layout_width="@dimen/img_width"
+                        android:layout_height="@dimen/img_height"
+                        android:src="@drawable/_res_img_state_empty" />
+
+                    <com.kennie.lib.widgets.views.SlantedView
+                        android:layout_width="@dimen/text_height"
+                        android:layout_height="@dimen/text_height"
+                        android:layout_alignBottom="@+id/left_bottom_imageView"
+                        android:layout_alignParentStart="true"
+                        app:sv_slantedBackgroundColor="@color/primary"
+                        app:sv_slantedTextColor="@color/primary_light"
+                        app:sv_slantedLength="@dimen/text_slanted"
+                        app:sv_slantedMode="left_bottom"
+                        app:sv_slantedText="TEST"
+                        app:sv_slantedTextSize="10sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_height"
+                    android:layout_marginStart="@dimen/_res_dp_5">
+
+                    <ImageView
+                        android:id="@+id/img_right_bt"
+                        android:layout_width="@dimen/img_width"
+                        android:layout_height="@dimen/img_height"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/_res_img_state_empty" />
+
+
+                    <com.kennie.lib.widgets.views.SlantedView
+                        android:id="@+id/slv_right_bt"
+                        android:layout_width="@dimen/text_height"
+                        android:layout_height="@dimen/text_height"
+                        android:layout_alignBottom="@+id/img_right_bt"
+                        android:layout_alignParentEnd="true"
+                        app:sv_slantedBackgroundColor="@color/slanted_fb"
+                        app:sv_slantedLength="@dimen/text_slanted"
+                        app:sv_slantedMode="right_bottom"
+                        app:sv_slantedText="TEST"
+                        app:sv_slantedTextSize="@dimen/_res_sp_10" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_height"
+                    android:layout_marginStart="@dimen/_res_dp_10">
+
+                    <ImageView
+                        android:id="@+id/img_left_bt_tri"
+                        android:layout_width="@dimen/img_width"
+                        android:layout_height="@dimen/img_height"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/_res_img_state_empty" />
+
+
+                    <com.kennie.lib.widgets.views.SlantedView
+                        android:id="@+id/slv_left_bt_tri"
+                        android:layout_width="@dimen/text_height"
+                        android:layout_height="@dimen/text_height"
+                        android:layout_alignBottom="@+id/img_left_bt_tri"
+                        android:layout_alignParentStart="true"
+                        app:sv_slantedBackgroundColor="@color/primary"
+                        app:sv_slantedTextColor="@color/primary_light"
+                        app:sv_slantedLength="@dimen/text_slanted"
+                        app:sv_slantedMode="left_bottom_triangle"
+                        app:sv_slantedText="TEST"
+                        app:sv_slantedTextSize="10sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_height"
+                    android:layout_marginStart="@dimen/_res_dp_5">
+
+                    <ImageView
+                        android:id="@+id/img_right_bt_tri"
+                        android:layout_width="@dimen/img_width"
+                        android:layout_height="@dimen/img_height"
+                        android:src="@drawable/_res_img_state_empty" />
+
+
+                    <com.kennie.lib.widgets.views.SlantedView
+                        android:id="@+id/slv_right_bt_tri"
+                        android:layout_width="@dimen/text_height"
+                        android:layout_height="@dimen/text_height"
+                        android:layout_alignBottom="@+id/img_right_bt_tri"
+                        android:layout_alignParentEnd="true"
+                        app:sv_slantedBackgroundColor="@color/slanted_ff"
+                        app:sv_slantedLength="@dimen/text_slanted"
+                        app:sv_slantedMode="right_bottom_triangle"
+                        app:sv_slantedText="TEST"
+                        app:sv_slantedTextSize="10sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
 
