@@ -39,19 +39,44 @@
             android:padding="@dimen/_res_dp_5"
             android:text="1.密码隐藏显示 EditText" />
 
-        <com.kennie.lib.widgets.et.PasswordEditText
-            android:id="@+id/et_login_password"
-            style="@style/_res_EditText_Style"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_res_dp_10"
-            android:hint="请输入密码"
-            android:inputType="textPassword"
-            android:maxLength="20"
-            android:minHeight="@dimen/_res_dp_48"
-            android:padding="@dimen/dp_10"
-            android:singleLine="true" />
+            android:orientation="horizontal">
+
+            <com.kennie.lib.widgets.et.PasswordEditText
+                android:id="@+id/et_login_password"
+                style="@style/_res_EditText_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_res_dp_10"
+                android:layout_weight="1"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:minHeight="@dimen/_res_dp_48"
+                android:padding="@dimen/dp_10"
+                android:singleLine="true" />
+
+            <com.kennie.lib.widgets.tv.CountDownTextView
+                android:id="@+id/cv_register_countdown"
+                style="@style/_res_Btn_RoundBorderGreen_Style"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="发送验证码" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_res_dp_5"
+            android:text="2.验证码倒计时" />
+
 
     </LinearLayout>
 

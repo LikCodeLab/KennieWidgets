@@ -1,4 +1,4 @@
-package com.kennie.widgets.tv;
+package com.kennie.lib.widgets.tv;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,15 +6,16 @@ import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.kennie.widgets.R;
+import com.kennie.lib.widgets.R;
+
 
 
 /**
- * project : KennieViews
- * class_name :  CountDownTextView
- * author : Kennie
- * date : 2021/11/18 0:13
- * desc : 验证码倒计时
+ * Author：Kennie
+ * Project：KennieUtils
+ * Class：CountDownTextView
+ * Date：2021/12/12 23:15
+ * Desc：验证码倒计时
  */
 public class CountDownTextView extends AppCompatTextView implements Runnable {
 
@@ -95,7 +96,7 @@ public class CountDownTextView extends AppCompatTextView implements Runnable {
             return;
         }
         mCurrentSecond--;
-        setText(getContext().getString(R.string._countdowntextview_apply, mCurrentSecond, DEFAULT_TIME_UNIT));
+        setText(getContext().getString(R.string._countdown_textview_apply, mCurrentSecond, DEFAULT_TIME_UNIT));
         //setText(mCurrentSecond + " " + TIME_UNIT);
         postDelayed(this, DEFAULT_DELAY_MILLIS);
     }
