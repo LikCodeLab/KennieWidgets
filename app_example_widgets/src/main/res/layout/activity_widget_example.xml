@@ -1,7 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/_res_dp_10"
+    android:layout_marginVertical="@dimen/_res_dp_10"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    tools:ignore="HardcodedText">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="@dimen/_res_dp_5"
+            android:text="0.带清除按钮的 EditText" />
+
+
+        <com.kennie.lib.widgets.et.ClearEditText
+            style="@style/_res_EditText_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="@dimen/_res_dp_10"
+            android:hint="请输入"
+            android:inputType="phone"
+            android:padding="@dimen/dp_10"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_res_dp_5"
+            android:text="1.密码隐藏显示 EditText" />
+
+        <com.kennie.lib.widgets.et.PasswordEditText
+            android:id="@+id/et_login_password"
+            style="@style/_res_EditText_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:minHeight="@dimen/_res_dp_48"
+            android:padding="@dimen/dp_10"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+</ScrollView>
