@@ -10,6 +10,7 @@ dependencyResolutionManagement {
 rootProject.name = "KennieWidgets"
 
 //************************演示项目 目录************************
-
+include ':widget_example'
 
 //************************公共库 目录************************
+include ':widget_library'
