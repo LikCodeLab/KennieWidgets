@@ -10,24 +10,6 @@ dependencyResolutionManagement {
 rootProject.name = "KennieWidgets"
 
 //************************演示项目 目录************************
-include ':app_example_widgets'
+
 
 //************************公共库 目录************************
-include ':widgets'
-
-
-
-//************************OLD 目录************************
-
-// AndroidSmallTagView(20181224)(cugkuan)
-include ':AndroidSmallTagView(20181224)(cugkuan)_app'
-project(':AndroidSmallTagView(20181224)(cugkuan)_app').projectDir = new File('OLD/AndroidSmallTagView(20181224)(cugkuan)/app_example')
-include ':AndroidSmallTagView(20181224)(cugkuan)_library'
-project(':AndroidSmallTagView(20181224)(cugkuan)_library').projectDir = new File('OLD/AndroidSmallTagView(20181224)(cugkuan)/library')
-
-
-// TagLayout(20170603)(Rukey7)
-include ':TagLayout(20170603)(Rukey7)_app_example'
-project(':TagLayout(20170603)(Rukey7)_app_example').projectDir = new File('OLD/TagLayout(20170603)(Rukey7)/app_example')
-include ':TagLayout(20170603)(Rukey7)_taglayout'
-project(':TagLayout(20170603)(Rukey7)_taglayout').projectDir = new File('OLD/TagLayout(20170603)(Rukey7)/taglayout')
