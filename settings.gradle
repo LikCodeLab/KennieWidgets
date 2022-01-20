@@ -27,7 +27,7 @@ project(':AndroidSmallTagView(20181224)(cugkuan)_library').projectDir = new File
 
 
 // TagLayout(20170603)(Rukey7)
-//include ':TagLayout(20170603)(Rukey7)_app_example'
-//project(':TagLayout(20170603)(Rukey7)_app_example').projectDir = new File('OLD/TagLayout(20170603)(Rukey7)/app_example')
-//include ':TagLayout(20170603)(Rukey7)_taglayout'
-//project(':TagLayout(20170603)(Rukey7)_taglayout').projectDir = new File('OLD/TagLayout(20170603)(Rukey7)/taglayout')
+include ':TagLayout(20170603)(Rukey7)_app_example'
+project(':TagLayout(20170603)(Rukey7)_app_example').projectDir = new File('OLD/TagLayout(20170603)(Rukey7)/app_example')
+include ':TagLayout(20170603)(Rukey7)_taglayout'
+project(':TagLayout(20170603)(Rukey7)_taglayout').projectDir = new File('OLD/TagLayout(20170603)(Rukey7)/taglayout')
