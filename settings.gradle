@@ -14,3 +14,10 @@ include ':widget_example'
 
 //************************公共库 目录************************
 include ':widget_library'
+
+
+// MPAndroidChart(20210621)(PhilJay)
+include ':MPChartExample'
+project(':MPChartExample').projectDir = new File('MPAndroidChart(20210621)(PhilJay)/MPChartExample')
+include ':MPChartLib'
+project(':MPChartLib').projectDir = new File('MPAndroidChart(20210621)(PhilJay)/MPChartLib')

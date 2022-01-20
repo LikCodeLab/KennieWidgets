@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+
+android {
+    compileSdk rootProject.ext.buildConfig.compileSdk
+    defaultConfig {
+        applicationId "com.xxmassdeveloper.mpchartexample"
+        minSdkVersion rootProject.ext.buildConfig.minSdk as Integer
+        targetSdkVersion rootProject.ext.buildConfig.targetSdk as Integer
+        versionCode 57
+        versionName '3.1.0'
+    }
+
+    compileOptions {
+        encoding 'UTF-8'
+        // jdk 1.8 开始支持 lambda 表达式
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation depK.core
+    implementation depX.appcompat
+    implementation depX.material
+    implementation kennieX.res
+    implementation project(':MPChartLib')
+}
