@@ -17,7 +17,6 @@ dependencies {
     implementation depK.core
     implementation depX.appcompat
     implementation depX.material
-    implementation project(':library_widgets')
     implementation kennieX.i18n
     implementation kennieX.res
 }
