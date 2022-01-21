@@ -13,4 +13,4 @@ rootProject.name = "KennieWidgets"
 include ':widget_example'
 
 //************************公共库 目录************************
-include ':widget_library'
+include ':library_widgets'

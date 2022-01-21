@@ -41,24 +41,29 @@ public class SearchBoxView extends LinearLayout implements ISearchBoxView {
     private boolean enableClearFocusAfterSearch;
 
     public SearchBoxView(Context context) {
-        super(context);
-        init();
+        this(context, null);
     }
 
     public SearchBoxView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init();
+        this(context, attrs, 0);
     }
 
 
     public SearchBoxView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context, attrs);
     }
 
 
-    private void init() {
+    /**
+     * 初始化
+     *
+     * @param context 上下文对象
+     * @param attrs   属性集
+     */
+    private void init(Context context, AttributeSet attrs) {
         initViews();
+        //TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SearchBoxView);
     }
 
     private void initViews() {
